@@ -22,11 +22,14 @@ from pudge.views import *
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', index),
-    path('app.html', app),
-    path('blog/index.html', blog),
-    path('blog/article/<uuid:id>/detail.html', article_detail),
+    path('', index),                                        # 首页
+    path('admin/', admin.site.urls),                        # 管理
+    path('app', app, name='app'),                           # 应用
+    path('blog/article', article_list, name='article_list'),
+    path('blog/article/new', ArticleNewView.as_view(), name='article_new'),
+    path('blog/article/<uuid:article_id>', article_detail, name='article_detail'),
+    path('blog/article/<uuid:article_id>/edit', ArticleEditView.as_view(), name='article_edit'),
+
     path('mdeditor/', include('mdeditor.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api-demo/', include(demo.urls.urlpatterns))
