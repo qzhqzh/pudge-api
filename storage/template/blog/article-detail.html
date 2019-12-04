@@ -8,6 +8,9 @@
 
 </head>
 <body>
+    <p><a href="{% url 'article_edit' article.id %}">edit</a>
+    <a href="{% url 'article_list' %}">return</a></p>
+    <p>{{ article.title }}</p>
     <p>{{ article.body|safe }}</p>
 </body>
 </html>
