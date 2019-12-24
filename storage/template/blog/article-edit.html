@@ -13,6 +13,12 @@
             {% csrf_token %}
             {{ form.media }}
             {{ form.as_p }}
+
+    <p>Category: <input name="category" type="text" value={{ article.category }}/></p>
+    <p>Tags: <input name="tags" type="text" value=
+            {% for tag in article.tags.all %}{{ tag.name }}{% if not forloop.last %},{% endif %}{% endfor %}>
+    </p>
+
 <p><input type="submit" value="post"></p>
 </form>
 

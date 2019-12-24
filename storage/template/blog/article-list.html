@@ -20,5 +20,7 @@
 {#        <a href="/blog/article/{{ article.id }}/detail.html">{{ forloop.counter }}. {{ article.title }}</a><br>#}
         {% endfor %}
     </div>
+
+<p align="right"><a href='{% url 'todo-list' %}'>todo list</a>
 </body>
 </html>

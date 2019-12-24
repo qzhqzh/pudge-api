@@ -1,0 +1,238 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+[05/Dec/2019 16:11:00] "GET / HTTP/1.1" 200 515
+[05/Dec/2019 16:40:07] "GET / HTTP/1.1" 200 515
+[05/Dec/2019 16:41:20] "GET / HTTP/1.1" 200 515
+[05/Dec/2019 17:13:20] "GET / HTTP/1.1" 200 515
+Not Found: /TP/public/index.php
+[05/Dec/2019 17:14:35] "GET /TP/public/index.php HTTP/1.1" 404 3252
+Not Found: /TP/index.php
+[05/Dec/2019 17:14:35] "GET /TP/index.php HTTP/1.1" 404 3231
+Not Found: /thinkphp/html/public/index.php
+[05/Dec/2019 17:14:35] "GET /thinkphp/html/public/index.php HTTP/1.1" 404 3285
+Not Found: /html/public/index.php
+[05/Dec/2019 17:14:35] "GET /html/public/index.php HTTP/1.1" 404 3258
+Not Found: /public/index.php
+[05/Dec/2019 17:14:35] "GET /public/index.php HTTP/1.1" 404 3243
+Not Found: /TP/html/public/index.php
+[05/Dec/2019 17:14:35] "GET /TP/html/public/index.php HTTP/1.1" 404 3267
+Not Found: /elrekt.php
+[05/Dec/2019 17:14:35] "GET /elrekt.php HTTP/1.1" 404 3225
+Not Found: /index.php
+[05/Dec/2019 17:14:35] "GET /index.php HTTP/1.1" 404 3222
+[05/Dec/2019 17:14:35] "GET / HTTP/1.1" 200 515
+[05/Dec/2019 18:36:59] "GET / HTTP/1.1" 200 515
+[05/Dec/2019 19:16:46] "GET / HTTP/1.1" 200 515
+Not Found: /upgrade.aspx
+[05/Dec/2019 19:25:19] "POST /upgrade.aspx?a1=a51599c6 HTTP/1.1" 404 3244
+[05/Dec/2019 19:53:11] "GET / HTTP/1.1" 200 515
+[05/Dec/2019 20:01:12] "GET / HTTP/1.1" 200 515
+[05/Dec/2019 20:04:08] "GET / HTTP/1.1" 200 515
+Not Found: /TP/public/index.php
+[05/Dec/2019 21:06:12] "GET /TP/public/index.php HTTP/1.1" 404 3252
+Not Found: /TP/index.php
+[05/Dec/2019 21:06:12] "GET /TP/index.php HTTP/1.1" 404 3231
+Not Found: /thinkphp/html/public/index.php
+[05/Dec/2019 21:06:12] "GET /thinkphp/html/public/index.php HTTP/1.1" 404 3285
+Not Found: /html/public/index.php
+[05/Dec/2019 21:06:12] "GET /html/public/index.php HTTP/1.1" 404 3258
+Not Found: /public/index.php
+[05/Dec/2019 21:06:12] "GET /public/index.php HTTP/1.1" 404 3243
+Not Found: /TP/html/public/index.php
+[05/Dec/2019 21:06:12] "GET /TP/html/public/index.php HTTP/1.1" 404 3267
+Not Found: /elrekt.php
+[05/Dec/2019 21:06:12] "GET /elrekt.php HTTP/1.1" 404 3225
+Not Found: /index.php
+[05/Dec/2019 21:06:13] "GET /index.php HTTP/1.1" 404 3222
+[05/Dec/2019 21:06:13] "GET / HTTP/1.1" 200 515
+[05/Dec/2019 21:32:14] "GET / HTTP/1.1" 200 515
+Invalid HTTP_HOST header: 'web.asia-east2-a.c.wired-armor-254514.internal'. You may need to add 'web.asia-east2-a.c.wired-armor-254514.internal' to ALLOWED_HOSTS.
+Bad Request: /cgi-bin/img.pl
+[05/Dec/2019 21:53:56] "GET /cgi-bin/img.pl HTTP/1.1" 400 64264
+Invalid HTTP_HOST header: 'web.asia-east2-a.c.wired-armor-254514.internal'. You may need to add 'web.asia-east2-a.c.wired-armor-254514.internal' to ALLOWED_HOSTS.
+Bad Request: /setup.cgi
+[05/Dec/2019 22:28:10] "GET /setup.cgi?next_file=netgear.cfg&todo=syscmd&cmd=busybox&curpath=/&currentsetting.htm=1 HTTP/1.1" 400 66204
+Invalid HTTP_HOST header: 'web.asia-east2-a.c.wired-armor-254514.internal'. You may need to add 'web.asia-east2-a.c.wired-armor-254514.internal' to ALLOWED_HOSTS.
+Bad Request: /
+[05/Dec/2019 22:40:46] "GET / HTTP/1.0" 400 64448
+[06/Dec/2019 01:23:39] "GET / HTTP/1.1" 200 515
+Not Found: /phpmyadmin/
+[06/Dec/2019 01:23:40] "GET /phpmyadmin/ HTTP/1.1" 404 3228
+Not Found: /phpMyAdmin/
+[06/Dec/2019 01:23:40] "GET /phpMyAdmin/ HTTP/1.1" 404 3228
+Not Found: /PMA/
+[06/Dec/2019 01:23:40] "GET /PMA/ HTTP/1.1" 404 3207
+Not Found: /pma/
+[06/Dec/2019 01:23:40] "GET /pma/ HTTP/1.1" 404 3207
+[06/Dec/2019 01:23:40] "GET /admin/ HTTP/1.1" 302 0
+[06/Dec/2019 01:23:41] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1819
+Not Found: /dbadmin/
+[06/Dec/2019 01:23:41] "GET /dbadmin/ HTTP/1.1" 404 3219
+Not Found: /mysql/
+[06/Dec/2019 01:23:41] "GET /mysql/ HTTP/1.1" 404 3213
+Not Found: /myadmin/
+[06/Dec/2019 01:23:41] "GET /myadmin/ HTTP/1.1" 404 3219
+Not Found: /openserver/phpmyadmin/
+[06/Dec/2019 01:23:42] "GET /openserver/phpmyadmin/ HTTP/1.1" 404 3261
+Not Found: /phpmyadmin2/
+[06/Dec/2019 01:23:42] "GET /phpmyadmin2/ HTTP/1.1" 404 3231
+Not Found: /phpMyAdmin2/
+[06/Dec/2019 01:23:42] "GET /phpMyAdmin2/ HTTP/1.1" 404 3231
+Not Found: /phpMyAdmin-2/
+[06/Dec/2019 01:23:42] "GET /phpMyAdmin-2/ HTTP/1.1" 404 3234
+Not Found: /php-my-admin/
+[06/Dec/2019 01:23:42] "GET /php-my-admin/ HTTP/1.1" 404 3234
+Not Found: /phpMyAdmin-2.2.3/
+[06/Dec/2019 01:23:42] "GET /phpMyAdmin-2.2.3/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.2.6/
+[06/Dec/2019 01:23:42] "GET /phpMyAdmin-2.2.6/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.5.1/
+[06/Dec/2019 01:23:43] "GET /phpMyAdmin-2.5.1/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.5.4/
+[06/Dec/2019 01:23:43] "GET /phpMyAdmin-2.5.4/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.5.5-rc1/
+[06/Dec/2019 01:23:43] "GET /phpMyAdmin-2.5.5-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.5.5-rc2/
+[06/Dec/2019 01:23:43] "GET /phpMyAdmin-2.5.5-rc2/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.5.5/
+[06/Dec/2019 01:23:43] "GET /phpMyAdmin-2.5.5/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.5.5-pl1/
+[06/Dec/2019 01:23:43] "GET /phpMyAdmin-2.5.5-pl1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.5.6-rc1/
+[06/Dec/2019 01:23:43] "GET /phpMyAdmin-2.5.6-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.5.6-rc2/
+[06/Dec/2019 01:23:44] "GET /phpMyAdmin-2.5.6-rc2/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.5.6/
+[06/Dec/2019 01:23:44] "GET /phpMyAdmin-2.5.6/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.5.7/
+[06/Dec/2019 01:23:44] "GET /phpMyAdmin-2.5.7/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.5.7-pl1/
+[06/Dec/2019 01:23:44] "GET /phpMyAdmin-2.5.7-pl1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.0-alpha/
+[06/Dec/2019 01:23:44] "GET /phpMyAdmin-2.6.0-alpha/ HTTP/1.1" 404 3264
+Not Found: /phpMyAdmin-2.6.0-alpha2/
+[06/Dec/2019 01:23:44] "GET /phpMyAdmin-2.6.0-alpha2/ HTTP/1.1" 404 3267
+Not Found: /phpMyAdmin-2.6.0-beta1/
+[06/Dec/2019 01:23:45] "GET /phpMyAdmin-2.6.0-beta1/ HTTP/1.1" 404 3264
+Not Found: /phpMyAdmin-2.6.0-beta2/
+[06/Dec/2019 01:23:45] "GET /phpMyAdmin-2.6.0-beta2/ HTTP/1.1" 404 3264
+Not Found: /phpMyAdmin-2.6.0-rc1/
+[06/Dec/2019 01:23:45] "GET /phpMyAdmin-2.6.0-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.0-rc2/
+[06/Dec/2019 01:23:45] "GET /phpMyAdmin-2.6.0-rc2/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.0-rc3/
+[06/Dec/2019 01:23:45] "GET /phpMyAdmin-2.6.0-rc3/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.0/
+[06/Dec/2019 01:23:45] "GET /phpMyAdmin-2.6.0/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.6.0-pl1/
+[06/Dec/2019 01:23:45] "GET /phpMyAdmin-2.6.0-pl1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.0-pl2/
+[06/Dec/2019 01:23:46] "GET /phpMyAdmin-2.6.0-pl2/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.0-pl3/
+[06/Dec/2019 01:23:46] "GET /phpMyAdmin-2.6.0-pl3/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.1-rc1/
+[06/Dec/2019 01:23:46] "GET /phpMyAdmin-2.6.1-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.1-rc2/
+[06/Dec/2019 01:23:46] "GET /phpMyAdmin-2.6.1-rc2/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.1/
+[06/Dec/2019 01:23:46] "GET /phpMyAdmin-2.6.1/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.6.1-pl1/
+[06/Dec/2019 01:23:46] "GET /phpMyAdmin-2.6.1-pl1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.1-pl2/
+[06/Dec/2019 01:23:46] "GET /phpMyAdmin-2.6.1-pl2/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.1-pl3/
+[06/Dec/2019 01:23:47] "GET /phpMyAdmin-2.6.1-pl3/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.2-rc1/
+[06/Dec/2019 01:23:47] "GET /phpMyAdmin-2.6.2-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.2-beta1/
+[06/Dec/2019 01:23:47] "GET /phpMyAdmin-2.6.2-beta1/ HTTP/1.1" 404 3264
+Not Found: /phpMyAdmin-2.6.2-rc1/
+[06/Dec/2019 01:23:47] "GET /phpMyAdmin-2.6.2-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.2/
+[06/Dec/2019 01:23:47] "GET /phpMyAdmin-2.6.2/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.6.2-pl1/
+[06/Dec/2019 01:23:47] "GET /phpMyAdmin-2.6.2-pl1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.3/
+[06/Dec/2019 01:23:47] "GET /phpMyAdmin-2.6.3/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.6.3-rc1/
+[06/Dec/2019 01:23:48] "GET /phpMyAdmin-2.6.3-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.3/
+[06/Dec/2019 01:23:48] "GET /phpMyAdmin-2.6.3/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.6.3-pl1/
+[06/Dec/2019 01:23:48] "GET /phpMyAdmin-2.6.3-pl1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.4-rc1/
+[06/Dec/2019 01:23:48] "GET /phpMyAdmin-2.6.4-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.4-pl1/
+[06/Dec/2019 01:23:48] "GET /phpMyAdmin-2.6.4-pl1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.4-pl2/
+[06/Dec/2019 01:23:48] "GET /phpMyAdmin-2.6.4-pl2/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.4-pl3/
+[06/Dec/2019 01:23:48] "GET /phpMyAdmin-2.6.4-pl3/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.4-pl4/
+[06/Dec/2019 01:23:49] "GET /phpMyAdmin-2.6.4-pl4/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.6.4/
+[06/Dec/2019 01:23:49] "GET /phpMyAdmin-2.6.4/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.7.0-beta1/
+[06/Dec/2019 01:23:49] "GET /phpMyAdmin-2.7.0-beta1/ HTTP/1.1" 404 3264
+Not Found: /phpMyAdmin-2.7.0-rc1/
+[06/Dec/2019 01:23:49] "GET /phpMyAdmin-2.7.0-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.7.0-pl1/
+[06/Dec/2019 01:23:49] "GET /phpMyAdmin-2.7.0-pl1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.7.0-pl2/
+[06/Dec/2019 01:23:49] "GET /phpMyAdmin-2.7.0-pl2/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.7.0/
+[06/Dec/2019 01:23:49] "GET /phpMyAdmin-2.7.0/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.8.0-beta1/
+[06/Dec/2019 01:23:50] "GET /phpMyAdmin-2.8.0-beta1/ HTTP/1.1" 404 3264
+Not Found: /phpMyAdmin-2.8.0-rc1/
+[06/Dec/2019 01:23:50] "GET /phpMyAdmin-2.8.0-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.8.0-rc2/
+[06/Dec/2019 01:23:50] "GET /phpMyAdmin-2.8.0-rc2/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.8.0/
+[06/Dec/2019 01:23:50] "GET /phpMyAdmin-2.8.0/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.8.0.1/
+[06/Dec/2019 01:23:50] "GET /phpMyAdmin-2.8.0.1/ HTTP/1.1" 404 3252
+Not Found: /phpMyAdmin-2.8.0.2/
+[06/Dec/2019 01:23:50] "GET /phpMyAdmin-2.8.0.2/ HTTP/1.1" 404 3252
+Not Found: /phpMyAdmin-2.8.0.3/
+[06/Dec/2019 01:23:50] "GET /phpMyAdmin-2.8.0.3/ HTTP/1.1" 404 3252
+Not Found: /phpMyAdmin-2.8.0.4/
+[06/Dec/2019 01:23:51] "GET /phpMyAdmin-2.8.0.4/ HTTP/1.1" 404 3252
+Not Found: /phpMyAdmin-2.8.1-rc1/
+[06/Dec/2019 01:23:51] "GET /phpMyAdmin-2.8.1-rc1/ HTTP/1.1" 404 3258
+Not Found: /phpMyAdmin-2.8.1/
+[06/Dec/2019 01:23:51] "GET /phpMyAdmin-2.8.1/ HTTP/1.1" 404 3246
+Not Found: /phpMyAdmin-2.8.2/
+[06/Dec/2019 01:23:51] "GET /phpMyAdmin-2.8.2/ HTTP/1.1" 404 3246
+Not Found: /sqlmanager/
+[06/Dec/2019 01:23:51] "GET /sqlmanager/ HTTP/1.1" 404 3228
+Not Found: /mysqlmanager/
+[06/Dec/2019 01:23:51] "GET /mysqlmanager/ HTTP/1.1" 404 3234
+Not Found: /p/m/a/
+[06/Dec/2019 01:23:51] "GET /p/m/a/ HTTP/1.1" 404 3213
+Not Found: /PMA2005/
+[06/Dec/2019 01:23:52] "GET /PMA2005/ HTTP/1.1" 404 3219
+Not Found: /pma2005/
+[06/Dec/2019 01:23:52] "GET /pma2005/ HTTP/1.1" 404 3219
+Not Found: /phpmanager/
+[06/Dec/2019 01:23:52] "GET /phpmanager/ HTTP/1.1" 404 3228
+Not Found: /php-myadmin/
+[06/Dec/2019 01:23:52] "GET /php-myadmin/ HTTP/1.1" 404 3231
+Not Found: /phpmy-admin/
+[06/Dec/2019 01:23:52] "GET /phpmy-admin/ HTTP/1.1" 404 3231
+Not Found: /webadmin/
+[06/Dec/2019 01:23:52] "GET /webadmin/ HTTP/1.1" 404 3222
+Not Found: /sqlweb/
+[06/Dec/2019 01:23:52] "GET /sqlweb/ HTTP/1.1" 404 3216
+Not Found: /websql/
+[06/Dec/2019 01:23:53] "GET /websql/ HTTP/1.1" 404 3216
+Not Found: /webdb/
+[06/Dec/2019 01:23:53] "GET /webdb/ HTTP/1.1" 404 3213
+Not Found: /mysqladmin/
+[06/Dec/2019 01:23:53] "GET /mysqladmin/ HTTP/1.1" 404 3228
+Not Found: /mysql-admin/
+[06/Dec/2019 01:23:53] "GET /mysql-admin/ HTTP/1.1" 404 3231
+[06/Dec/2019 01:39:44] "GET / HTTP/1.1" 200 515
+[06/Dec/2019 01:39:44] "GET /blog/article HTTP/1.1" 200 1241
+[06/Dec/2019 02:00:09] "GET / HTTP/1.1" 200 515
+[06/Dec/2019 02:41:11] "GET / HTTP/1.1" 200 515
