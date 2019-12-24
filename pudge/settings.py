@@ -26,7 +26,7 @@ SECRET_KEY = 'fp87#)qj8mgib*n7ejvb(y=1r7192!oye7yrgkx2x-#!@%ed$v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['34.92.94.223']
+ALLOWED_HOSTS = ['34.92.94.223',  '34.92.223.77']
 
 
 # Application definition
@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'core',
     'demo',
     'blog',
-    'bootstrap4'
+    'bootstrap4',
+    'rest_framework_swagger'
 ]
 
 MIDDLEWARE = [
@@ -148,7 +149,8 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
 

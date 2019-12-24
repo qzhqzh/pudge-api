@@ -10,7 +10,11 @@
 <body>
     <p><a href="{% url 'article_edit' article.id %}">edit</a>
     <a href="{% url 'article_list' %}">return</a></p>
-    <p>{{ article.title }}</p>
+    <p align="right">{{ article.title }}</p>
+
+    <p align="right">category: {{ article.category.name }}</p>
+    <p align="right">tags: {% for tag in article.tags.all %} <b>{{ tag.name }}</b> {% endfor %}</p>
+
     <p>{{ article.body|safe }}</p>
 </body>
 </html>

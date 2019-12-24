@@ -19,4 +19,3 @@ class CoreModel(UuidModel):
 
     class Meta:
         abstract = True
-
