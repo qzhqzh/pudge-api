@@ -48,6 +48,7 @@ class Todo(CoreModel):
     # def get_status_display(self):
     #     return dict(self.GROUP_CHOICES).get(self.status, 'error')
 
+
 # Mdeditor Form
 class ArticleMDEditorForm(forms.Form):
     title = forms.CharField()
