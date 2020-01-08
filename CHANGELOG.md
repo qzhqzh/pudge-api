@@ -1,5 +1,25 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 2.0.0 (2020-01-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **hi:** bbbreaking
+
+### Features
+
+* **hi:** wh at ([c9d2aab](https://github.com/qzhqzh/pudge/commit/c9d2aab980fba751357339649a4c605f010e4a0c)), closes [#111](https://github.com/qzhqzh/pudge/issues/111)
+
+
+### Bug Fixes
+
+* **main.py:** test ([9951816](https://github.com/qzhqzh/pudge/commit/995181618146fd32d6b25fdfbb30b59c3d84adcf))
+
+# Changelog
+
 ## [Unreleased](https://github.com/qzhqzh/pudge/tree/HEAD)
 
 [Full Changelog](https://github.com/qzhqzh/pudge/compare/v5...HEAD)
