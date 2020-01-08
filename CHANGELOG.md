@@ -1,8 +1,28 @@
 # Changelog
 
+## [Unreleased](https://github.com/qzhqzh/pudge/tree/HEAD)
+
+[Full Changelog](https://github.com/qzhqzh/pudge/compare/v5...HEAD)
+
+**Closed issues:**
+
+- test333 [\#4](https://github.com/qzhqzh/pudge/issues/4)
+
+## [v5](https://github.com/qzhqzh/pudge/tree/v5) (2020-01-08)
+
+[Full Changelog](https://github.com/qzhqzh/pudge/compare/v4...v5)
+
+## [v4](https://github.com/qzhqzh/pudge/tree/v4) (2020-01-08)
+
+[Full Changelog](https://github.com/qzhqzh/pudge/compare/v3...v4)
+
 ## [v3](https://github.com/qzhqzh/pudge/tree/v3) (2020-01-08)
 
 [Full Changelog](https://github.com/qzhqzh/pudge/compare/v2...v3)
+
+**Fixed bugs:**
+
+- test2 [\#3](https://github.com/qzhqzh/pudge/issues/3)
 
 **Closed issues:**
 
