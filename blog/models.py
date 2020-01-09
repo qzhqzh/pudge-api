@@ -14,22 +14,30 @@ class SlugModel(CoreModel):
         self.slug = slugify(self.name)
         super(SlugModel, self).save(*args, **kwargs)
 
+
 class Category(SlugModel):
     name = models.CharField(max_length=30, verbose_name='分类名称', unique=True)
     parent = models.ForeignKey('self', verbose_name='标签爸爸', blank=True,
                                null=True, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=40, blank=True)
 
+
 class Tag(SlugModel):
     name = models.CharField(max_length=30, verbose_name='标签名称', unique=True)
     slug = models.SlugField(max_length=40, blank=True)
+
 
 # Create your models here.
 class Article(CoreModel):
     title = models.CharField(max_length=128, verbose_name='文章标题')
     body = MDTextField(max_length=128, verbose_name='文章标题')
-    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE, verbose_name='文章分类')
+    category = models.ForeignKey(Category, blank=True, null=True,
+                                 on_delete=models.CASCADE, verbose_name='文章分类')
     tags = models.ManyToManyField(Tag, blank=True, verbose_name='文章标签')
+
+    def __str__(self):
+        return '%s（%s）' % (
+        self.title, '、'.join([tag.name for tag in self.tags.all()]))
 
 
 class Todo(CoreModel):
@@ -54,7 +62,7 @@ class ArticleMDEditorForm(forms.Form):
     title = forms.CharField()
     body = MDTextFormField(config_name='form_config')
 
+
 class TodoMDEditorForm(forms.Form):
     body = MDTextFormField(config_name='form_config')
     status = forms.ChoiceField(choices=Todo.GROUP_CHOICES)
-
