@@ -30,8 +30,21 @@ class ArticleNewView(View):
         return render(request, 'blog/article-new.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
-        title = request.POST.get('title')
-        body = request.POST.get('body')
+
+        f = request.FILES.get('upload')
+        f_content = bytes()
+        if f:
+            with open('storage/uploads/markdown/%s' % f.name, 'wb+')as fho:
+                for chunk in f.chunks():
+                    fho.write(chunk)
+                    f_content+=chunk
+
+        if f_content:
+            title = f.name
+            body = f_content.decode('utf-8')
+        else:
+            title = request.POST.get('title')
+            body = request.POST.get('body')
 
         category_name = request.POST.get('category')
         tag_names = request.POST.get('tags')
