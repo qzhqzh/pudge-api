@@ -236,3 +236,25 @@ Not Found: /mysql-admin/
 [06/Dec/2019 01:39:44] "GET /blog/article HTTP/1.1" 200 1241
 [06/Dec/2019 02:00:09] "GET / HTTP/1.1" 200 515
 [06/Dec/2019 02:41:11] "GET / HTTP/1.1" 200 515
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W002) Your URL pattern '^/api/todo$' [name='todo-api-list'] has a route beginning with a '/'. Remove this slash as it is unnecessary. If this pattern is targeted in an include(), ensure the include() pattern has a trailing '/'.
+?: (urls.W002) Your URL pattern '^/api/todo/(?P<pk>[^/.]+)$' [name='todo-api-detail'] has a route beginning with a '/'. Remove this slash as it is unnecessary. If this pattern is targeted in an include(), ensure the include() pattern has a trailing '/'.
+?: (urls.W002) Your URL pattern '^/api/todo/(?P<pk>[^/.]+)/edit$' [name='todo-api-edit'] has a route beginning with a '/'. Remove this slash as it is unnecessary. If this pattern is targeted in an include(), ensure the include() pattern has a trailing '/'.
+?: (urls.W002) Your URL pattern '^/todo$' [name='todo-list'] has a route beginning with a '/'. Remove this slash as it is unnecessary. If this pattern is targeted in an include(), ensure the include() pattern has a trailing '/'.
+?: (urls.W002) Your URL pattern '^/todo/(?P<pk>[^/.]+)$' [name='todo-detail'] has a route beginning with a '/'. Remove this slash as it is unnecessary. If this pattern is targeted in an include(), ensure the include() pattern has a trailing '/'.
+?: (urls.W002) Your URL pattern '^/todo/new$' [name='todo-new'] has a route beginning with a '/'. Remove this slash as it is unnecessary. If this pattern is targeted in an include(), ensure the include() pattern has a trailing '/'.
+
+System check identified 6 issues (0 silenced).
+[03/Mar/2020 09:21:23] "GET /blog/article/0b160771-82ae-48f9-a887-29e44733c16e HTTP/1.1" 200 521
+[03/Mar/2020 09:21:26] "GET /blog/article/0b160771-82ae-48f9-a887-29e44733c16e/edit HTTP/1.1" 302 0
+[03/Mar/2020 09:21:26] "GET /api-auth/login?next=/blog/article/0b160771-82ae-48f9-a887-29e44733c16e/edit HTTP/1.1" 301 0
+[03/Mar/2020 09:21:28] "GET /api-auth/login/?next=/blog/article/0b160771-82ae-48f9-a887-29e44733c16e/edit HTTP/1.1" 200 2755
+[03/Mar/2020 09:21:28] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+[03/Mar/2020 09:21:28] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3385
+[03/Mar/2020 09:21:28] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[03/Mar/2020 09:21:28] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1131
+[03/Mar/2020 09:21:30] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+[03/Mar/2020 09:21:37] "GET /blog/article HTTP/1.1" 200 1408
