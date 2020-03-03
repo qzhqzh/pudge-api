@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<<<<<<< HEAD
 ## 1.1.0 (2020-01-10)
 
 
@@ -26,6 +27,8 @@ All notable changes to this project will be documented in this file. See [standa
 * **init:** blog module basic framework, it works! ([1b3a30a](https://github.com/qzhqzh/pudge/commit/1b3a30ae92ae7d3edf69dce824d1927d623ea5fd))
 * **venv:** sync requirements ([76fe656](https://github.com/qzhqzh/pudge/commit/76fe6564b3dc202ccf22168ce8ea99c961719366))
 
+=======
+>>>>>>> 9a134a0c8d2d67e1c9ddd585521a61c48ff60ccf
 ## [2.1.0](https://github.com/qzhqzh/pudge/compare/v2.0.4...v2.1.0) (2020-01-08)
 
 
