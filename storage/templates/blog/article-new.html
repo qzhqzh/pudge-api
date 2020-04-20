@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<a href="{% url 'article_list' %}">cancel</a></p>
+<form method="post"  enctype="multipart/form-data" action="{% url 'article_new' %}">
+<!--<form method="post" action="{% url 'article_new' %}">-->
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+
+    <p>Category: <input name="category" type="text" value="category_placeholder"/></p>
+    <p>Tags: <input name="tags" type="text" value="tag_placeholder"></p>
+
+    <p><input name="upload" type="file"></p>
+<!--    <iframe id="uploadIframe"></iframe>-->
+<!--<button type="submit">Submit</button>-->
+    <p><input type="submit" value="post"></p>
+</form>
+
+<script>
+    var doc = iframe.contentDocument ? iframe.contentDocument : frames[iframe.id].document;
+var response = doc.body && doc.body.innerHTML;
+    </script>
+</body>
+</html>
