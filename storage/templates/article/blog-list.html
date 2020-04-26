@@ -3,6 +3,13 @@
 {% block main %}
 
     <h1>Blog</h1>
+
+    <p style="text-align: right">
+    <a href={% url "t-note-new" %}>
+    <button>create</button>
+    </a>
+    </p>
+
     <ul>
         {% for blog in blogs %}
             <a href={% url "t-blog-detail" blog.id %}></a>

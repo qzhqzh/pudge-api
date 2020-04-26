@@ -9,6 +9,11 @@
     </a>
     </p>
 
+    <p style="text-align: right">
+    {% csrf_token %}
+    <button onclick="deleteNote()">delete</button>
+    </p>
+
     <p style="text-align: left">
     <a href={% url "t-note-list" %}>
     <button>return</button>
@@ -23,6 +28,28 @@
     <h2>{{ note.title }}</h2>
 
     <p>{{ note.content }}</p>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function deleteNote() {
+            if(confirm("Are you sure to delete this record?")){
+                csrf = document.querySelector('[name=csrfmiddlewaretoken]').value
+            axios({
+                method: 'delete',
+                url: '{% url "note-detail" note.id %}',
+                headers: {'X-CSRFToken': csrf},
+            }).then(data => {
+                    window.location.href = "{% url 't-note-list' %}";
+                }
+            ).catch(err => {
+                    console.log(err)
+                }
+            )
+            return false
+            }
+        }
+    </script>
+
 
 {% endblock %}
 
