@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
 from rest_framework.reverse import reverse
+from markdown import markdown
 
 from article.models import Note, Blog
 from article.serializers import NoteSerializer, BlogSerializer
@@ -33,7 +34,8 @@ class NoteAPIViewSet(ModelViewSet):
     def retrieve(self, request, *args, **kwargs):
         self.template_name = 'article/note-detail.html'
         resp = super(NoteAPIViewSet, self).retrieve(request, *args, **kwargs)
-        return Response({'note': resp.data, 'page': self.page})
+        content_html = markdown(resp.data['content'])
+        return Response({'note': resp.data, 'page': self.page, 'content_html': content_html})
 
     @action(methods=['get'], detail=False)
     def new(self, request, *args, **kwargs):

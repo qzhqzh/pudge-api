@@ -10,8 +10,10 @@ import uuid
 class UuidModel(models.Model):
     id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4,
                           editable=False, verbose_name='唯一UUID')
+
     class Meta:
         abstract = True
+
 
 class CoreModel(UuidModel):
     created_at = models.DateTimeField(default=timezone.now)
@@ -20,11 +22,20 @@ class CoreModel(UuidModel):
     class Meta:
         abstract = True
 
+
 class UserProfile(CoreModel):
-    user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='profile',
+                                on_delete=models.CASCADE)
+
 
 class GroupProfile(CoreModel):
-    group = models.OneToOneField(Group, related_name='group', on_delete=models.CASCADE)
+    group = models.OneToOneField(Group, related_name='group',
+                                 on_delete=models.CASCADE)
 
 
-
+class Attachement(CoreModel):
+    model = models.CharField(max_length=255, blank=True, null=True)
+    model_id = models.UUIDField(null=True)
+    name = models.CharField(max_length=255, blank=True)
+    file = models.FileField()
+    comment = models.CharField(max_length=255, blank=True)

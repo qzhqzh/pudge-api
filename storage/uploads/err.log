@@ -1,0 +1,13 @@
+    def get_permissions(self):
+        from core.permissions import CanDeleteDepartmentUser
+
+        if self.action == 'destroy':
+            self.permission_class =  [CanDeleteDepartmentUser]
+        return super(DepartmentUserViewSet, self).get_permissions()
+
+
+
+
+class CanDeleteDepartmentUser(BasePermission):
+    def has_permission(self, request, view):
+        return request.user and request.user.has_perm('core.delete_departmentuser')

@@ -3,8 +3,6 @@
 
 
 
-
-
 /* * Globals */
 /* Links */
 a, a:focus, a:hover { color: #fff; }
@@ -48,4 +46,10 @@ body { color: #fff; text-align: center; text-shadow: 0 .05rem .1rem rgba(0,0,0,.
 }
 @media (min-width: 62em) {
 .masthead,  .mastfoot,  .cover-container { width: 42rem; }
+}
+
+
+/*文章页面*/
+.article{
+    text-align: left !important;
 }

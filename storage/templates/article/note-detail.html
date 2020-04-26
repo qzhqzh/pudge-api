@@ -4,48 +4,52 @@
 
 
     <p style="text-align: right">
-    <a href={% url "t-note-new" %}>
-    <button>create</button>
-    </a>
+        <a href={% url "t-note-new" %}>
+            <button>create</button>
+        </a>
     </p>
 
     <p style="text-align: right">
-    {% csrf_token %}
-    <button onclick="deleteNote()">delete</button>
+        {% csrf_token %}
+        <button onclick="deleteNote()">delete</button>
     </p>
 
     <p style="text-align: left">
-    <a href={% url "t-note-list" %}>
-    <button>return</button>
-    </a>
-    <a href={% url "t-note-edit" note.id %}>
-    <button>edit</button>
-    </a>
+        <a href={% url "t-note-list" %}>
+            <button>return</button>
+        </a>
+        <a href={% url "t-note-edit" note.id %}>
+            <button>edit</button>
+        </a>
     </p>
 
     <hr>
 
     <h2>{{ note.title }}</h2>
 
-    <p>{{ note.content }}</p>
+    <div style="text-align: left">
+        {#  <p>{{ note.content }}</p> #}
+        {{ content_html|safe }}
+    </div>
+
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         function deleteNote() {
-            if(confirm("Are you sure to delete this record?")){
+            if (confirm("Are you sure to delete this record?")) {
                 csrf = document.querySelector('[name=csrfmiddlewaretoken]').value
-            axios({
-                method: 'delete',
-                url: '{% url "note-detail" note.id %}',
-                headers: {'X-CSRFToken': csrf},
-            }).then(data => {
-                    window.location.href = "{% url 't-note-list' %}";
-                }
-            ).catch(err => {
-                    console.log(err)
-                }
-            )
-            return false
+                axios({
+                    method: 'delete',
+                    url: '{% url "note-detail" note.id %}',
+                    headers: {'X-CSRFToken': csrf},
+                }).then(data => {
+                        window.location.href = "{% url 't-note-list' %}";
+                    }
+                ).catch(err => {
+                        console.log(err)
+                    }
+                )
+                return false
             }
         }
     </script>
