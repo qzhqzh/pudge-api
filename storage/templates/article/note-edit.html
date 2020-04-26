@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <p>
+        <a style="text-align: left" href={% url "t-note-list" %}>
+            return
+        </a>
+    </p>
+
+    <hr>
+
+    <form name="frm1" action="" onsubmit="return greeting()">
+        {% csrf_token %}
+        <input type="text" name="title" value={{ note.title }}>
+        <textarea name="content" cols="30" rows="10">{{ note.content }}</textarea>
+        <input type="submit" value="Submit">
+    </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function greeting() {
+            csrf = document.querySelector('[name=csrfmiddlewaretoken]').value
+            axios({
+                method: 'patch',
+                url: '{% url "note-detail" note.id %}',
+                headers: {'X-CSRFToken': csrf},
+                data: {
+                    title: document.forms["frm1"]["title"].value,
+                    content: document.forms["frm1"]["content"].value,
+                }
+            }).then(data => {
+                    window.location.href = "{% url 't-note-detail' note.id %}";
+                }
+            ).catch(err => {
+                    console.log(err)
+                }
+            )
+            return false
+        }
+    </script>
+
+{% endblock %}
+
+
+
+
+
+

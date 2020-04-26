@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <p>
+        <a style="text-align: left" href={% url "t-note-list" %}>
+            return
+        </a>
+    </p>
+
+    <hr>
+
+    <form id="note" action={% url "t-note-list" %} method="post">
+        {% csrf_token %}
+        <input type="text" name="title">
+        <textarea name="content" id="" cols="30" rows="10"></textarea>
+        <input type="submit">
+    </form>
+
+
+{% endblock %}
+
+
+
+
+
+

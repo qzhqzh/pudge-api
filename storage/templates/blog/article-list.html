@@ -1,26 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pudge</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href={% static "css/mystyle.css" %}>
-
-</head>
-<body>
-    <h1 align="right">blogs</h1>
+{% extends "layout.html" %}
+{% block main %}
+    <div id="search" class="row">
+        <div classpy="col-md-4" align="right">
+            <h1>📖 Notes</h1>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="www.baidu.com"></form>
+            <div class="input-group flex-nowrap"  align="right">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Username"
+                       aria-describedby="addon-wrapping">
+                <input type="submit" value="23">
+            </div>
+        </div>
+    </div>
     <hr>
-    <p align="right"><a href='{% url 'article_new' %}'>new</a>
-    <p align="center"><b>Article list</b></p>
-    <br>
-    <br>
-    <div class="center">
+    <p align="right"><a href='{% url 'article_new' %}'>
+        <svg class="bi bi-file-earmark-plus" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+             xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1H4a2 2 0 00-2 2v10a2 2 0 002 2h5v-1H4a1 1 0 01-1-1V3a1 1 0 011-1h5v2.5A1.5 1.5 0 0010.5 6H13v2h1V6L9 1z"/>
+            <path fill-rule="evenodd"
+                  d="M13.5 10a.5.5 0 01.5.5v2a.5.5 0 01-.5.5h-2a.5.5 0 010-1H13v-1.5a.5.5 0 01.5-.5z"
+                  clip-rule="evenodd"/>
+            <path fill-rule="evenodd" d="M13 12.5a.5.5 0 01.5-.5h2a.5.5 0 010 1H14v1.5a.5.5 0 01-1 0v-2z"
+                  clip-rule="evenodd"/>
+        </svg>
+    </a>
+    <h4 align="center" class="mb-5">list</h4>
+
+
+    <div id="article" align="center" class="mt-5">
         {% for article in articles %}
-        <a href="{% url 'article_detail' article.id %}">{{ forloop.counter }}. {{ article.title }}</a><br>
-{#        <a href="/blog/article/{{ article.id }}/detail.html">{{ forloop.counter }}. {{ article.title }}</a><br>#}
+            <a href="{% url 'article_detail' article.id %}"
+               target="_blank">{{ forloop.counter }}. {{ article.title }}</a>
+            <br>
         {% endfor %}
     </div>
 
-<p align="right"><a href='{% url 'todo-list' %}'>todo list</a>
-</body>
-</html>
+    <hr>
+    <div id="pages" class="mt-5">
+        {% if articles.has_previous %}
+            <a href="?page={{ articles.previous_page_number }}">上一页</a>
+        {% endif %}
+        <span>Page {{ articles.number }} of {{ articles.paginator.num_pages }}</span>
+        {% if articles.has_next %}
+            <a href="?page={{ articles.next_page_number }}">下一页</a>
+        {% endif %}
+        {#    <p>#}
+        {#        {% for page in articles.paginator.num_pages|get_range %}#}
+        {#            <a href=""><span> {{ page }} </span></a>#}
+        {#        {% endfor %}#}
+        {#    </p>#}
+    </div>
+    {#    <table data-toggle="table"#}
+    {#      data-url={% url 'article-list' %}>#}
+    {#      <thead>#}
+    {#        <tr>#}
+    {#          <th data-field="id">article id</th>#}
+    {#          <th data-field="title">article title</th>#}
+    {#        </tr>#}
+    {#      </thead>#}
+    {#    </table>#}
+
+
+{% endblock %}

@@ -23,16 +23,15 @@ class Article(CoreModel):
         abstract = True
 
 
-class SlugModel(CoreModel):
-    # name = models.CharField(max_length=30, verbose_name='名称', unique=True)
-    class Meta:
-        abstract = True
+class SlugMixin(object):
+    slug = models.SlugField()
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super(SlugModel, self).save(*args, **kwargs)
+        self.slug = slugify(self.title)
+        return super(SlugMixin, self).save(*args, **kwargs)
 
-class Note(Article):
+
+class Note(Article, SlugMixin):
     author = models.ForeignKey(User, related_name='notes',
                                on_delete=models.SET_NULL, blank=True, null=True)
     category = models.ForeignKey(Category, max_length=256, related_name='notes',

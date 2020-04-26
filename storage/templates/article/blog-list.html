@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <h1>Blog</h1>
+    <ul>
+        {% for blog in blogs %}
+            <a href={% url "t-blog-detail" blog.id %}></a>
+            <li>{{ blog.title }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

@@ -1,4 +1,7 @@
+from django.conf.urls import url
 from rest_framework import routers
+
+from demo import views
 from demo.views import *
 
 
@@ -9,6 +12,9 @@ router.register(r'html-demo', HtmlDemoViewSet)
 router.register(r'md-demo', MDDemoViewSet)
 urlpatterns = router.urls
 
+urlpatterns = urlpatterns + [
+    url(r'test', views.test)
+]
 
 import mistune
 mistune.Renderer()

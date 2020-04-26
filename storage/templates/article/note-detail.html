@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+
+    <p style="text-align: right">
+    <a href={% url "t-note-new" %}>
+    <button>create</button>
+    </a>
+    </p>
+
+    <p style="text-align: left">
+    <a href={% url "t-note-list" %}>
+    <button>return</button>
+    </a>
+    <a href={% url "t-note-edit" note.id %}>
+    <button>edit</button>
+    </a>
+    </p>
+
+    <hr>
+
+    <h2>{{ note.title }}</h2>
+
+    <p>{{ note.content }}</p>
+
+{% endblock %}
+
+
+
+
+
+

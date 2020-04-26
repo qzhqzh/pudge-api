@@ -18,7 +18,7 @@ class Bootstrap4DemoViewSet(ModelViewSet):
     def retrieve(self, request, *args, **kwargs):
         resp = super(Bootstrap4DemoViewSet, self).retrieve(request, *args, **kwargs)
         form = MyForm()
-        return render(request, template_name='demo-bootstrap4.html', context={'form': form})
+        return render(request, template_name='demo/demo-bootstrap4.html', context={'form': form})
 
 
 class HtmlDemoViewSet(ModelViewSet):
@@ -29,7 +29,7 @@ class HtmlDemoViewSet(ModelViewSet):
     def retrieve(self, request, *args, **kwargs):
         resp = super(HtmlDemoViewSet, self).retrieve(request, *args,
                                                            **kwargs)
-        return render(request, template_name='demo-html.html')
+        return render(request, template_name='demo/demo-html.html')
 
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, ListModelMixin, UpdateModelMixin, DestroyModelMixin
@@ -45,3 +45,7 @@ class MDDemoViewSet(GenericViewSet, RetrieveModelMixin, ListModelMixin):
         # return render(request, template_name='demo-mdedit.html')
 
         return Response({}, template_name='demo-mdedit.html')
+
+
+def test(request):
+    return None

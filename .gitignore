@@ -1,7 +1,8 @@
-.*
 nohup.out
-
 .idea
 *.swp
 *.pyc
 */__pycache__
+*/migrations
+storage/logs/
+storage/collect_statics

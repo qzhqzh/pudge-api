@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <h2>{{ note.title }}</h2>
+    <p>{{ note.content }}</p>
+
+    <a href={% url "t-blog-list" %}>return</a>
+
+{% endblock %}
+
+
+
+
+

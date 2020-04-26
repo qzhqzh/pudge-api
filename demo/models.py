@@ -6,6 +6,12 @@ from django import forms
 # Create your models here.
 class BasicDemo(CoreModel):
     name = models.CharField(max_length=512, verbose_name='测试字段')
+    test = models.BooleanField(default=False)
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        return super(BasicDemo, self).save(force_insert=False, force_update=False, using=None,
+             update_fields=None)
 
 class MyForm(forms.Form):
     media_type = forms.ChoiceField(

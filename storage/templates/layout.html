@@ -1,20 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>zhuqin's project</title>
+    {#    bootstrap4#}
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    {#    bootstrap-talbe#}
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.css">
+    <script src="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.js"></script>
+    {#    my-style#}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
 </head>
+
 <body>
-<div class="container">
-    <h1>我的第一个 Bootstrap 页面</h1>
-    <p>这是一些文本。</p>
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+            {% block header %}
+                <header class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand">ZhuQin's project</h3>
+                        <nav class="nav nav-masthead">
+                            <a class="nav-link {% ifequal page 'Home' %} active {% endifequal %}" href={% url 'home' %}>Home</a>
+                            <a class="nav-link {% ifequal page 'Note' %} active {% endifequal %}"  href={% url 't-note-list' %}>Notes</a>
+                            <a class="nav-link {% ifequal page 'Blog' %} active {% endifequal %}"  href={% url 't-blog-list' %}>Blogs</a>
+                            <a class="nav-link {% ifequal page 'Todo-list' %} active {% endifequal %}"  href='#'>Todo-list</a>
+                        </nav>
+
+                    </div>
+                </header>
+            {% endblock %}
+            {% block sidebar-left %}{% endblock %}
+            {% block sidebar-right %}{% endblock %}
+            {% block main %}{% endblock %}
+            {% block footer %}
+                <footer class="mastfoot">
+                    <div class="inner">
+                        <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a
+                                href="#">@zhuqin</a>.</p>
+
+
+                    </div>
+                </footer>
+            {% endblock %}
+        </div>
+    </div>
 </div>
+
 </body>
 </html>

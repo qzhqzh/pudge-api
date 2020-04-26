@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>zhuqin's project</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href={% static "css/mystyle.css" %}>
-</head>
-<body>
+{% extends "layout.html" %}
 
-<div name="description">
-    <p>1.用于学习后实践</p>
-    <p>2.用于测试</p>
-    <p>3.用于快速工具</p>
-</div>
-
-    <div id="nav" class="center">
-        <a href="{% url 'article_list'%}"  target="_blank" >Blog</a>
-        <a href="{% url 'app'%}"  target="_blank" >app</a>
-        <a href="admin"  target="_blank" >admin</a>
-    </div>
-
-
-</body>
-
-</html>
+{% block main %}
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Wild Fllower</h1>
+        <p class="lead">If you refuse to accept my letter, I will write it up so that you know at least a letter has been waiting for you.</p>
+        <p class="lead"><a href="#" class="btn btn-lg btn-secondary">Unforeseen</a></p>
+    </main>
+{% endblock %}
