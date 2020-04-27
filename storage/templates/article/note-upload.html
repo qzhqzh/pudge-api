@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <p>
+        <a style="text-align: left" href={% url "t-note-list" %}>
+            return
+        </a>
+    </p>
+
+    <hr>
+
+    <form id="note" action={% url "t-note-uploadnew" %} method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input name="file" type="file" value="">
+        <input type="submit" value="submit">
+    </form>
+
+{% endblock %}
+
+
+
+
+
+

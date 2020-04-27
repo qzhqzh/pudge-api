@@ -6,6 +6,11 @@
             <button>create</button>
         </a>
     </p>
+        <p style="text-align: right">
+        <a href={% url "t-note-upload" %}>
+            <button>upload</button>
+        </a>
+    </p>
     <ul>
         {% for note in notes %}
             <li><a href={% url "t-note-detail" note.id %}>{{ note.title }}</a></li>

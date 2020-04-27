@@ -33,7 +33,7 @@ class GroupProfile(CoreModel):
                                  on_delete=models.CASCADE)
 
 
-class Attachement(CoreModel):
+class Attachment(CoreModel):
     model = models.CharField(max_length=255, blank=True, null=True)
     model_id = models.UUIDField(null=True)
     name = models.CharField(max_length=255, blank=True)
