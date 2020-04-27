@@ -3,10 +3,15 @@ from core.models import CoreModel
 from bootstrap4.widgets import RadioSelectButtonGroup
 from django import forms
 
-# Create your models here.
+
+class Test(CoreModel):
+    name = models.CharField(max_length=512, verbose_name='测试字段')
+
+
 class BasicDemo(CoreModel):
     name = models.CharField(max_length=512, verbose_name='测试字段')
     test = models.BooleanField(default=False)
+    test_fk = models.ForeignKey(Test, related_name='basicdemo', verbose_name='测试用')
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
