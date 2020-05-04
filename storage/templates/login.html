@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Wild Fllower</h1>
+
+        <form action={% url 'login' %} method="post">
+            {% csrf_token %}
+            <input name="username">
+            <input name="password">
+            <input type="submit">
+        </form>
+    </main>
+{% endblock %}

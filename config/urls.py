@@ -20,7 +20,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls.static import static
 from config import settings
-from config.views import *
+from config.views import index, mylogin, mylogout
 from blog.views import *
 # import blog.urls
 # import demo.urls
@@ -36,6 +36,8 @@ urlpatterns = [
 
     # template
     path('', index, name='home'),
+    path('login', mylogin, name='login'),
+    path('logout', mylogout, name='logout'),
     # path('blog/article', article_list, name='article_list'),
     # path('blog/article/new', login_required(ArticleNewView.as_view(), login_url='/api-auth/login'), name='article_new'),
     # path('blog/article/<uuid:article_id>', article_detail, name='article_detail'),

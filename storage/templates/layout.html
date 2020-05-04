@@ -29,9 +29,11 @@
                         <h3 class="masthead-brand">ZhuQin's project</h3>
                         <nav class="nav nav-masthead">
                             <a class="nav-link {% ifequal page 'Home' %} active {% endifequal %}" href={% url 'home' %}>Home</a>
-                            <a class="nav-link {% ifequal page 'Note' %} active {% endifequal %}"  href={% url 't-note-list' %}>Notes</a>
-                            <a class="nav-link {% ifequal page 'Blog' %} active {% endifequal %}"  href={% url 't-blog-list' %}>Blogs</a>
-                            <a class="nav-link {% ifequal page 'Todo-list' %} active {% endifequal %}"  href='#'>Todo-list</a>
+                            <a class="nav-link {% ifequal page 'Note' %} active {% endifequal %}"
+                               href={% url 't-note-list' %}>Notes</a>
+                            <a class="nav-link {% ifequal page 'Blog' %} active {% endifequal %}"
+                               href={% url 't-blog-list' %}>Blogs</a>
+                            <a class="nav-link {% ifequal page 'Todo-list' %} active {% endifequal %}" href='#'>Todo-list</a>
                         </nav>
 
                     </div>
@@ -46,6 +48,8 @@
                         <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a
                                 href="#">@zhuqin</a>.</p>
 
+                        <p>当前在线：{{ current_user }}</p>
+                        <p><a href={% url 'login' %}>登录</a><a href={% url 'logout' %}>登出</a></p>
 
                     </div>
                 </footer>
