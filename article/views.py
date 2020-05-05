@@ -6,15 +6,19 @@ from rest_framework.decorators import action
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
 from rest_framework.reverse import reverse
 from markdown import markdown
-import os
+import os, math
 
 from article.models import Note, Blog
 from article.serializers import NoteSerializer, BlogSerializer
-from core.models import Attachment
+from core.models import Attachment, Backup
 from core.serializers import AttachmentSerializer
 
 from rest_framework.pagination import PageNumberPagination
+from config.settings import BACKUP_DIR, SCAN_DIRS
+from core.models import Scan
 
+
+from django.contrib import messages
 
 class StandardPageNumberPagination(PageNumberPagination):
     page_size_query_param = 'page_size'
@@ -91,10 +95,19 @@ class NoteHTMLViewSet(ModelViewSet):
         }
 
     def list(self, request, *args, **kwargs):
+        from config.settings import REST_FRAMEWORK
         self.template_name = 'article/note-list.html'
         resp = super(NoteHTMLViewSet, self).list(request, *args, **kwargs)
+        current_page = self.request.query_params.get('page', 1)
+        total_page = math.ceil(resp.data['count'] / REST_FRAMEWORK['PAGE_SIZE'])
+
         data = {
             'notes': resp.data['results'],
+            'count': resp.data['count'],
+            'current_page': current_page,
+            'total_page': total_page,
+            'previous': resp.data['previous'],
+            'next': resp.data['next'],
             'page': resp.data['meta']['page'],
             'current_user': resp.data['meta']['current_user']
         }
@@ -103,7 +116,14 @@ class NoteHTMLViewSet(ModelViewSet):
     def retrieve(self, request, *args, **kwargs):
         self.template_name = 'article/note-detail.html'
         resp = super(NoteHTMLViewSet, self).retrieve(request, *args, **kwargs)
-        content_html = markdown(resp.data['content'])
+        content_html = markdown(resp.data['content'],
+                                extensions=[
+                                    'markdown.extensions.extra',
+                                    'markdown.extensions.codehilite',
+                                    'markdown.extensions.toc',
+                                    'fenced_code'
+                                ]
+                                )
         return Response({'note': resp.data, 'page': self.page,
                          'content_html': content_html})
 
@@ -136,7 +156,12 @@ class NoteHTMLViewSet(ModelViewSet):
         return redirect(reverse('t-note-list'))
 
     def create(self, request, *args, **kwargs):
-        super(NoteHTMLViewSet, self).create(request, *args, **kwargs)
+        print(1)
+        try:
+            super(NoteHTMLViewSet, self).create(request, *args, **kwargs)
+        except Exception as e:
+            print(e)
+        print(2)
         return redirect(reverse('t-note-list'))
 
     @action(methods=['get'], detail=True)
@@ -144,6 +169,66 @@ class NoteHTMLViewSet(ModelViewSet):
         resp = self.retrieve(request, *args, **kwargs)
         self.template_name = 'article/note-edit.html'
         return resp
+
+    @action(methods=['get'], detail=True)
+    def backup(self, request, *args, **kwargs):
+        obj = self.get_object()
+
+        # 不是第一次备份，且
+        if obj.last_backup is not None and obj.last_backup > obj.last_upload:
+            messages.add_message(request, messages.INFO, 'Hello world.')
+            return redirect(reverse('t-note-list'))
+
+        if not obj.file:
+            obj.file = '%s.%s'%(obj.title, 'md')
+            obj.save()
+        with open(os.path.join(BACKUP_DIR, obj.file), 'w',
+                  encoding='utf-8')as fhO:
+            fhO.write(obj.content)
+        backup = Backup.objects.create(action='backup')
+        obj.backups.add(backup)
+
+        return redirect(reverse('t-note-list'))
+
+    def post2db(self, file, model):
+        from django.db.models import Model
+        if not issubclass(model, (Model,)) or not hasattr(model,
+                                                          'title') or not hasattr(
+                model, 'content'):
+            return
+        if file.endswith('md'):
+            with open(file, encoding='utf-8')as fh:
+                content = fh.read()
+            filename = os.path.basename(file)
+            title, extension = os.path.splitext(filename)
+
+
+            note, is_create = model.objects.update_or_create(
+                title=title,
+                defaults={
+                    "content": content,
+                    "file": filename
+                }
+            )
+            backup = Backup.objects.create(action='upload')
+            note.backups.add(backup)
+
+    @action(methods=['get'], detail=True)
+    def sync(self, request, *args, **kwargs):
+        obj = self.get_object()
+        self.post2db(os.path.join(BACKUP_DIR,obj.file), Note)
+        return redirect(reverse('t-note-list'))
+
+    @action(methods=['get'], detail=False)
+    def scan(self, request, *args, **kwargs):
+        # todo: 嵌套目录的情况需要处理
+        for scan_dir in SCAN_DIRS:
+            for filename in os.listdir(scan_dir):
+                filepath = os.path.join(scan_dir, filename)
+                if not Scan.objects.filter(filepath=filepath).exists():
+                    self.post2db(filepath, Note)
+                    Scan.objects.create(filepath=filepath)
+        return redirect(reverse('t-note-list'))
 
 
 class BlogAPIViewSet(ModelViewSet):

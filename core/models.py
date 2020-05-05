@@ -39,3 +39,14 @@ class Attachment(CoreModel):
     name = models.CharField(max_length=255, blank=True)
     file = models.FileField()
     comment = models.CharField(max_length=255, blank=True)
+
+
+class Scan(CoreModel):
+    filepath = models.CharField(max_length=255)
+
+class Backup(CoreModel):
+    ACTION = (
+        ('backup', 'backup'),
+        ('upload', 'upload')
+    )
+    action = models.CharField(max_length=255, choices=ACTION)

@@ -20,6 +20,31 @@
 </head>
 
 <body>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                <div class="m_title">
+                    {{ message.tags }}
+                    <a href="" id="a_tuichu">
+                        <i class="iconfont icon-fork"></i>
+                    </a>
+                </div>
+                <div id="m_box">
+                    {{ message }}
+                </div>
+                <a href="" id="a_sure">
+                    <button id="button_sure">
+                        确认
+                    </button>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
 <div class="site-wrapper">
     <div class="site-wrapper-inner">
         <div class="cover-container">

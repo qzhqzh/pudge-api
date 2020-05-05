@@ -6,15 +6,30 @@
             <button>create</button>
         </a>
     </p>
-        <p style="text-align: right">
+    <p style="text-align: right">
         <a href={% url "t-note-upload" %}>
             <button>upload</button>
         </a>
     </p>
+        <p style="text-align: right">
+        <a href={% url "t-note-scan" %}>
+            <button>scan</button>
+        </a>
+    </p>
     <ul>
         {% for note in notes %}
-            <li><a href={% url "t-note-detail" note.id %}>{{ note.title }}</a></li>
+            <li>
+                <a href={% url "t-note-detail" note.id %}>{{ note.title }}</a>
+                <a href={% url "t-note-backup" note.id %}>备份</a>
+                <a href={% url "t-note-sync" note.id %}>同步</a>
+            </li>
         {% endfor %}
+
+        <p></p>
+        <p><a href={{ previous }}>前一页</a><a href={{ next }}>后一页</a></p>
+        <p>当前页数：{{ current_page }} 总页数：{{ total_page }} 总记录数：{{ count }}</p>
+
+
     </ul>
 
 {% endblock %}

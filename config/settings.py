@@ -162,7 +162,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
-    'PAGE_SIZE': 2, # 非常重要
+    'PAGE_SIZE': 10, # 非常重要
 }
 
 # (mdeditor) https://github.com/pylixm/django-mdeditor
@@ -292,3 +292,10 @@ LOGGING = {
         }
     }
 }
+
+
+
+BACKUP_DIR = os.path.join('storage', 'backups')
+SCAN_DIRS = [
+    os.path.join('storage', 'scan')
+]
