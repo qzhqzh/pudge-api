@@ -8,8 +8,8 @@ from rest_framework.reverse import reverse
 from markdown import markdown
 import os, math
 
-from article.models import Note, Blog
-from article.serializers import NoteSerializer, BlogSerializer
+from article.models import Note, Blog, Todo
+from article.serializers import NoteSerializer, BlogSerializer, TodoSerializer
 from core.models import Attachment, Backup
 from core.serializers import AttachmentSerializer
 
@@ -245,3 +245,26 @@ class BlogAPIViewSet(ModelViewSet):
         self.template_name = 'article/blog-detail.html'
         queryset = self.get_queryset()
         return Response({'blog': queryset, 'page': 'Blog'})
+
+
+
+class HtmlDocumentViewSet(ModelViewSet):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+    pagination_class = MetaPageNumberPagination
+    renderer_classes = [TemplateHTMLRenderer]
+
+    def list(self, request, *args, **kwargs):
+        resp = super(HtmlDocumentViewSet, self).list(request, *args, **kwargs)
+        data = {
+            'resp': resp.data,
+            'page': 'Document'
+        }
+        self.template_name = 'article/document-list.html'
+        print(data)
+        return Response(data)
+
+class TodoViewSet(ModelViewSet):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+    pagination_class = MetaPageNumberPagination

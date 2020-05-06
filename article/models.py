@@ -87,16 +87,16 @@ class Blog(Article):
             self.title, '、'.join([tag.name for tag in self.tags.all()]))
 
 
-class Todo(CoreModel):
+class Todo(Article):
     GROUP_CHOICES = (
         (-1, 'cancer'),
         (0, 'waiting'),
         (1, 'running'),
         (2, 'finish')
     )
-    body = MDTextField(max_length=128, verbose_name='内容')
+    # body = MDTextField(max_length=128, verbose_name='内容')
     status = models.SmallIntegerField(verbose_name='状态', choices=GROUP_CHOICES,
-                                      )
+                                      default=0)
 
     @property
     def aa(self):
