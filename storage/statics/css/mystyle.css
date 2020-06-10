@@ -1,4 +1,7 @@
 /*clear*/
+body, form, li, p, ul {
+    list-style: none;
+}
 
 
 
@@ -52,4 +55,12 @@ body { color: #fff; text-align: center; text-shadow: 0 .05rem .1rem rgba(0,0,0,.
 /*文章页面*/
 .article{
     text-align: left !important;
+}
+
+#article-list{
+    color: red;
+    text-align: right;
+}
+#operate {
+    float: right;
 }

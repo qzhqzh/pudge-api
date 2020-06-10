@@ -50,3 +50,6 @@ class Backup(CoreModel):
         ('upload', 'upload')
     )
     action = models.CharField(max_length=255, choices=ACTION)
+
+
+# class Setting(CoreModel):
