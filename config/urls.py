@@ -47,7 +47,7 @@ urlpatterns = [
     # path('blog/article/<uuid:article_id>', article_detail, name='article_detail'),
     # path('blog/article/<uuid:article_id>/edit', login_required(ArticleEditView.as_view(), login_url='/api-auth/login'), name='article_edit'),
     # path('api-demo/', include(demo.urls.urlpatterns)),
-    path('api/demo/', include('demo.urls')),
+    # path('api/demo/', include('demo.urls')),
     # path('auth/', include('django.contrib.auth.urls')),  # 模板需要自己写
 
     # api
