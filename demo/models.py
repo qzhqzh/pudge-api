@@ -27,3 +27,9 @@ class MyForm(forms.Form):
         choices=((1, 'Vinyl'), (2, 'Compact Disc')),
         initial=1,
     )
+
+
+class FileUploadDemo(CoreModel):
+    """文件上传教程"""
+    file = models.FileField(upload_to='storage/uploads')
+    

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from demo.models import *
-from demo.serializers import BasicDemoSerializer
+from demo.serializers import BasicDemoSerializer, FileUploadDemoSerializer
 from rest_framework.renderers import TemplateHTMLRenderer, JSONRenderer, BrowsableAPIRenderer
 from rest_framework.response import Response
 
@@ -49,3 +49,8 @@ class MDDemoViewSet(GenericViewSet, RetrieveModelMixin, ListModelMixin):
 
 def test(request):
     return None
+
+
+class FileUploadDemoViewSet(ModelViewSet):
+    queryset = FileUploadDemo.objects.all()
+    serializer_class = FileUploadDemoSerializer
