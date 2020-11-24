@@ -62,9 +62,9 @@ urlpatterns += [
     url("docs/", include_docs_urls(title="MY API DOCS")),
 ]
 
-if settings.DEBUG:
+if settings.dev.DEBUG:
     # static files (images, css, javascript, etc.)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.base.MEDIA_URL, document_root=settings.base.MEDIA_ROOT)
 
     from rest_framework import permissions
     from drf_yasg.views import get_schema_view

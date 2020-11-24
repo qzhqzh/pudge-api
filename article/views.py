@@ -14,7 +14,7 @@ from core.models import Attachment, Backup
 from core.serializers import AttachmentSerializer
 
 from rest_framework.pagination import PageNumberPagination
-from config.settings import BACKUP_DIR, SCAN_DIRS
+from config.envs import BACKUP_DIR, SCAN_DIRS
 from core.models import Scan
 
 
