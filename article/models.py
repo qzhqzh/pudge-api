@@ -3,7 +3,7 @@ from django import forms
 from mdeditor.fields import MDTextField, MDTextFormField
 
 from core.models import CoreModel, User, Backup
-from uuslug import slugify
+# from uuslug import slugify
 
 import os
 
@@ -32,7 +32,7 @@ class SlugMixin(object):
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        # self.slug = slugify(self.title)
         return super(SlugMixin, self).save(*args, **kwargs)
 
 

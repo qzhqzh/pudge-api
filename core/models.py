@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone
 from softdelete.models import SoftDeleteObject
-from model_utils.models import StatusModel
 from django.contrib.auth.models import AbstractUser, User, Group, UserManager
 from django.contrib.postgres import fields
 import uuid

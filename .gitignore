@@ -7,3 +7,4 @@ nohup.out
 storage/logs/
 storage/collect_statics
 db.sqlite3
+config/envs.py
