@@ -16,7 +16,8 @@ router.register(r'file-upload-demo', FileUploadDemoViewSet)
 urlpatterns = router.urls
 
 urlpatterns = urlpatterns + [
-    url(r'test', views.test)
+    # url(r'test', views.test),
+    url(r'test_file_upload', views.test_file_upload)
 ]
 
 import mistune

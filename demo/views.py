@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from demo.models import *
@@ -47,10 +48,13 @@ class MDDemoViewSet(GenericViewSet, RetrieveModelMixin, ListModelMixin):
         return Response({}, template_name='demo-mdedit.html')
 
 
-def test(request):
-    return None
+# def test(request):
+#     return None
 
 
 class FileUploadDemoViewSet(ModelViewSet):
     queryset = FileUploadDemo.objects.all()
     serializer_class = FileUploadDemoSerializer
+
+def test_file_upload(request):
+    return render(request, 'test_file_upload.html', {'page': 'test'})

@@ -1,0 +1,22 @@
+<form action="/api/demo/file-upload-demo" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input id="file" name="file" type="file">
+    <input type="submit">
+</form>
+
+
+<button onclick="upload()">submit</button>
+
+
+<script>
+    function upload() {
+        var formData = new FormData();
+        var fileObj = document.getElementById('file').files[0];
+        formData.append('file', fileObj);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("post","api/demo/test_file_upload");
+        xhr.setRequestHeader("Content-Type","form-data");
+        xhr.send(formData);
+    }
+</script>
