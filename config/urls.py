@@ -56,6 +56,8 @@ urlpatterns = [
     path('api/article/', include('article.urls')),
     path('api/core/', include('core.urls')),
 
+    path('api/demo/', include('demo.urls')),
+
 ]
 
 urlpatterns += [

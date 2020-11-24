@@ -6,3 +6,4 @@ nohup.out
 */migrations
 storage/logs/
 storage/collect_statics
+db.sqlite3
