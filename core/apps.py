@@ -5,5 +5,4 @@ class CoreConfig(AppConfig):
     name = 'core'
 
     def ready(self):
-        #import core.signals
-        print(1112222211)
+        import core.signals
