@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from demo.models import BasicDemo, FileUploadDemo
+from .models import BasicDemo, FileUploadDemo
 
 
 class BasicDemoSerializer(ModelSerializer):
