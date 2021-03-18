@@ -1,11 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Editor.js 🤩🧦🤨 example</title>
   <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
-  <link href="assets/demo.css" rel="stylesheet">
-  <script src="assets/json-preview.js"></script>
+  <script src="static/js/json-preview.js"></script>
   <link rel="stylesheet" type="text/css" href="{% static 'css/editor.css' %}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
@@ -14,7 +15,7 @@
     <div class="ce-example__content _ce-example__content--small">
       <div id="editorjs"></div>
 
-      <div class="button btn-primary" id="saveButton">
+      <div class="ce-example__button" id="saveButton">
         editor.save()
       </div>
 
@@ -28,6 +29,10 @@
         </div>
       </div>
     </div>
+
+      <div class="ce-example__output">
+      <pre class="ce-example__output-content" id="output"></pre>
+      </div>
   </div>
 
   <!-- Load Tools -->
@@ -56,6 +61,11 @@
 
   <!-- Load Editor.js's Core -->
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+
+
+  {# axios #}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <!-- Initialization -->
 
   <script>
@@ -254,7 +264,7 @@
           {
             type: 'image',
             data: {
-              url: 'assets/codex2x.png',
+              url: 'static/img/2.jpg',
               caption: '',
               stretched: false,
               withBorder: true,
@@ -264,7 +274,7 @@
         ]
       },
       onReady: function(){
-        saveButton.click();
+        {#saveButton.click();#}
       },
       onChange: function() {
         console.log('something changed');
@@ -289,6 +299,16 @@
       editor.save()
         .then((savedData) => {
           cPreview.show(savedData, document.getElementById("output"));
+          console.log(savedData);
+
+          axios({
+              method:'get',
+              url:'http://106.53.58.248:8000/api/article/note',
+              responseType:'stream'
+            })
+              .then(function(response) {
+                  console.log(response.data)
+            });
         })
         .catch((error) => {
           console.error('Saving error', error);
