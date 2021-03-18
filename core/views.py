@@ -52,5 +52,3 @@ def mylogout(request):
     logout(request)
     return HttpResponseRedirect('/')
 
-def editor(request):
-    return render(request, 'editor.html', {'page': 'Editor'})

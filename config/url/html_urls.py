@@ -1,5 +1,6 @@
 from django.urls import path
 from core.views import index, mylogin, mylogout
+from kbms.views import editor
 
 
 html_urlpatterns = [
@@ -9,4 +10,7 @@ html_urlpatterns = [
     path('login', mylogin, name='login'),
     # 登出
     path('logout', mylogout, name='logout'),
+
+    # 编辑器
+    path('editor', editor, name='editor'),
 ]

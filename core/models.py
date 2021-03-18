@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+
+# todo
 from softdelete.models import SoftDeleteObject
 from django.contrib.auth.models import AbstractUser, User, Group, UserManager
 from django.contrib.postgres import fields
@@ -7,8 +9,7 @@ import uuid
 
 
 class UuidModel(models.Model):
-    id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4,
-                          editable=False, verbose_name='唯一UUID')
+    id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4, editable=False, verbose_name='唯一UUID')
 
     class Meta:
         abstract = True
@@ -23,13 +24,12 @@ class CoreModel(UuidModel):
 
 
 class UserProfile(CoreModel):
-    user = models.OneToOneField(User, related_name='profile',
-                                on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
 
 
 class GroupProfile(CoreModel):
-    group = models.OneToOneField(Group, related_name='group',
-                                 on_delete=models.CASCADE)
+    group = models.OneToOneField(Group, related_name='group', on_delete=models.CASCADE)
+
 
 
 class Attachment(CoreModel):

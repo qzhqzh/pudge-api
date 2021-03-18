@@ -1,8 +1,7 @@
 from rest_framework import routers
 
-from core.views import AttachmentViewSet
-
+from kbms.views import ArticleViewSet
 
 router = routers.SimpleRouter(trailing_slash=False)
-router.register('attachment', AttachmentViewSet, basename='attachment')
+router.register(r'article', ArticleViewSet, basename='kbms-article')
 urlpatterns = router.urls
