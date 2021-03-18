@@ -4,12 +4,13 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from . import settings
 
-from .api_urls import urlpatterns as api_urlpatterns
-from .html_urls import urlpatterns as html_urlpatterns
+from .url import api_urlpatterns, html_urlpatterns, test_urlpatterns
+
+
 
 from rest_framework.documentation import include_docs_urls
 
-urlpatterns = api_urlpatterns + html_urlpatterns
+urlpatterns = api_urlpatterns + html_urlpatterns + test_urlpatterns
 
 urlpatterns += [
     url("docs/", include_docs_urls(title="MY API DOCS")),

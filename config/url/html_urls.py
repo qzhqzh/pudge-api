@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import index, mylogin, mylogout
+from core.views import index, mylogin, mylogout
 
-urlpatterns = [
+
+html_urlpatterns = [
     # 主页
     path('', index, name='home'),
     # 登陆
