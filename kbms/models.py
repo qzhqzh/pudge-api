@@ -11,7 +11,7 @@ import os
 
 class Article(CoreModel):
     name = models.CharField(max_length=128, verbose_name='标题')
-    editorjs_content = models.TextField(verbose_name='Editorjs编辑器内容')
+    content = models.JSONField(verbose_name='Editorjs编辑器内容')
 
 
 

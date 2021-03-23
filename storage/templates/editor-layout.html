@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.css">
     <script src="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.js"></script>
     {#    my-style#}
+     <link rel="stylesheet" type="text/css" href="{% static 'css/editor.css' %}">
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
 </head>
 
@@ -69,7 +71,8 @@
             {% block sidebar-right %}{% endblock %}
             {% block main %}{% endblock %}
             {% block footer %}
-                <footer class="mastfoot">
+{#                <footer class="mastfoot">#}
+                <footer>
                     <div class="inner">
                         <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a
                                 href="#">@zhuqin</a>.</p>
