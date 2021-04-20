@@ -52,3 +52,5 @@ def mylogout(request):
     logout(request)
     return HttpResponseRedirect('/')
 
+def test_demo(request):
+    return render(request, 'index.html', {})

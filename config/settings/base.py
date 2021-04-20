@@ -25,7 +25,7 @@ SECRET_KEY = 'fp87#)qj8mgib*n7ejvb(y=1r7192!oye7yrgkx2x-#!@%ed$v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -43,12 +43,22 @@ INSTALLED_APPS = [
     'bootstrap4',
     'drf_yasg',
     'debug_toolbar',
+    'sass_processor',
     'core',
     'demo',
     'blog',
     'article',
     'kbms',
 ]
+
+STATICFILES_FINDERS = [
+  'django.contrib.staticfiles.finders.FileSystemFinder',
+  'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+  'sass_processor.finders.CssFinder',
+]
+# Django Sass 编译后css 的存放位置
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR,'static','css')
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -73,3 +73,9 @@ urllib3==1.25.7
 wcwidth==0.1.7
 wrapt==1.11.2
 zipp==3.1.0
+
+# sass support
+# https://www.dazhuanlan.com/2019/12/05/5de87f085a9a0/
+libsass
+django-compressor
+django-sass-processor

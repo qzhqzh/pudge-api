@@ -1,0 +1,136 @@
+{% extends "component/layout.html" %}
+
+{% load static %}
+
+{% block css %}
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+
+    <!-- Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <!-- https://github.com/yyycode/jquery-bootstrap4-pagination -->
+    <script src="{% static 'js/jquery-bootstrap4-pagination.js' %}"></script>
+
+    <!-- http://www.axios-js.com/zh-cn/docs/ -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- https://cn.vuejs.org/v2/guide/installation.html#%E7%9B%B4%E6%8E%A5%E7%94%A8-lt-script-gt-%E5%BC%95%E5%85%A5 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css " rel="stylesheet">
+    <link href="https://unpkg.com/primevue/resources/primevue.min.css " rel="stylesheet">
+    <link href="https://unpkg.com/primeicons/primeicons.css " rel="stylesheet">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/primevue/components/calendar/calendar.umd.min.js"></script>
+
+{% endblock %}
+
+{% block body %}
+
+
+    <!-- https://blog.csdn.net/bocai_xiaodaidai/article/details/111595625 -->
+    {% verbatim %}
+
+    <div id="app">
+        {{ message }}
+
+        {{ dataList }}
+
+        <p-calendar></p-calendar>
+    </div>
+
+    {% endverbatim %}
+
+    <!-- https://www.quackit.com/bootstrap/bootstrap_4/tutorial/getting_started_with_bootstrap.cfm -->
+    <!-- https://jingyan.baidu.com/article/e52e3615ea325700c70c5115.html -->
+    <nav>
+        <ul id="pagination" class="pagination justify-content-center"></ul>
+    </nav>
+
+    <script type="module">
+
+        let dataList;
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                dataList: this.dataList
+            }
+        })
+
+        initData();
+
+        new Vue({
+            components: {
+                'p-calendar': calendar
+            }
+        }).$mount('#app')
+
+        function createData() {
+            // 创建数据
+            axios({
+                method: 'post',
+                url: '/api/kbms/article',
+                data: {
+                    name: 'test',
+                    content: 'test123456789'
+                }
+            }).then(function (response) {
+                console.log('create');
+                console.log(response.data);
+            })
+        }
+
+        function getData(page) {
+            // 获取数据
+            axios({
+                method: 'get',
+                url: '/api/kbms/article',
+                data: {
+                    'page': page
+                }
+            }).then(function (response) {
+                app.dataList = response.data;
+            })
+        }
+
+        function initData() {
+            getData(1);
+        }
+
+        $('#pagination').pagination({
+            pageSize: 5,                            // 单页容量
+            page: 1,                                // 当前页
+            totalRows: 50,                          // 总条数
+            previous: 'previous',
+            next: 'next',
+            debug: false,                           // 调试模式量默false
+            onClickPage: function (event, page) {   // 分页按钮回调函数
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                getData(page);
+            }
+        });
+
+
+    </script>
+
+{% endblock %}
+
+
+
+
+
